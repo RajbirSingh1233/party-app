@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PartySearch from './components/PartySearch';
+import SearchResult from './components/SearchResult';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+      <Routes>
+        <Route path="/" element={<PartySearch />} />
+        <Route path="/search-result/:partyId" element={<SearchResult />} />
+      </Routes>
+    </Router>
+  );
+};
+
+const Home = () => {
+  return (
+    <div>
+      <PartySearch />
     </div>
   );
-}
+};
+
+const AddParty = () => {
+  return (
+    <div>
+      input
+    </div>
+  );
+};
 
 export default App;
